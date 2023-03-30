@@ -17,6 +17,10 @@
     }
   </style>
   <body>
+
+    <h1>Vastaa näihin kysymyksiin AJAX kautta</h1>
+
+
     <div>
     <!-- Huomaa, että lomakkeen metodi = POST -->
     <!-- action -määrittelee URL:n johon POST-tyyppinen pyyntö lähetetään -->
@@ -73,9 +77,9 @@
     <script>
         // Varmistetaan että sivu on ladattu kokonaan ennenkuin lisäillään kuuntelijoita
         window.onload = event => {
-          //   console.log("page is fully loaded");
+        console.log("page is fully loaded");
   
-          var nappi = document.getElementById("button1");
+        var nappi = document.getElementById("button1");
   
           // Lisätään nappiin kuuntelija, joka hakee kenttien tiedot klikattaessa
           nappi.addEventListener("click", () => {

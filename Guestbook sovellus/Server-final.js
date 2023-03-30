@@ -41,13 +41,14 @@ response.write(html)
 response.writeHead(200, { "Content-Type": "text/html" });
 response.write("Olet saapunut informatiiviselle tietosivulle. \n");
 
-var file = require('./data.json'); 
+/* var file = require('./data.json');  */
+
+var file = fs.writeFileSync('data.json')
 
 console.log("Luettu tiedostosta:");
 console.log(file.toString());
 
 var results ='<table border="1"> ';
-
 
 
 for (var i = 0; i < file.length; i++) {
@@ -151,10 +152,9 @@ console.log(data1);
 var data2 = JSON.stringify(data1, "", 1); // Parametreilla "" ja 1 saadaan kaunis tulostus
 
 
+var talletus = fs.writeFileSync("data.json", data2);
 
-fs.writeFileSync("data.json", data2);
-
-res.write(data2);
+res.write(talletus);
 res.write("Viesti tallennettu JSONille.");
 
 
@@ -176,9 +176,9 @@ app.post("/kirjaudu2", function(req, res) {
     
     console.log(data4);
 
-    fs.writeFileSync("data.json", data4);
+    var tallennus = fs.writeFileSync("data.json", data4);
 
-    res.write(data4);
+    res.write(tallennus);
     res.write("Viesti tallennettu Ajaxille.");
 
     res.send("Lähetit lomakkeen! Email: " + email + " Password: " + pass, " Viesti: " + viesti);
