@@ -1,6 +1,6 @@
 var http = require("http");
 var fs = require("fs");
-const port = process.env.PORT || 8080;
+const portti = process.env.PORT || 8080;
 
 
 
@@ -40,6 +40,7 @@ response.write(html)
 // Valitaan Content-type tarjoiltavan sisällön suhteen
 response.writeHead(200, { "Content-Type": "text/html" });
 response.write("Olet saapunut informatiiviselle tietosivulle. \n");
+
 
 /* var file = require('./data.json');  */
 
@@ -125,7 +126,13 @@ else if (request.url === "/kirjaudu2") {
 
 }
 
+else (request.url === "/kirjaudu2"); {
 
+    response.writeHead(200, { "Content-Type": "text/json" });
+    response.write("Valitse toimiva URL tai linkki etusivulta");
+
+
+}
 
 
 
@@ -197,4 +204,4 @@ response.end(); //HTTP vastaus päättyy
 
 
 
-.listen(port); // palvelin kuuntelee joko pilvipalvelun porttia tai paikallista porttia nro 3000
+.listen(portti); // palvelin kuuntelee joko pilvipalvelun porttia tai paikallista porttia nro 3000
