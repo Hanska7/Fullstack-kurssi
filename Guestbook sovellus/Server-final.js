@@ -126,7 +126,7 @@ else if (request.url === "/kirjaudu2") {
 
 }
 
-else (request.url === "/kirjaudu2"); {
+else (request.url === "*"); {
 
     response.writeHead(200, { "Content-Type": "text/json" });
     response.write("Valitse toimiva URL tai linkki etusivulta");
