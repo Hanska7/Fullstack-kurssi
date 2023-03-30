@@ -42,15 +42,15 @@ response.writeHead(200, { "Content-Type": "text/html" });
 response.write("Olet saapunut informatiiviselle tietosivulle. \n");
 
 
-/* var file = require('./data.json');  */
+var file = require('./data.json'); 
 
-var file = fs.writeFileSync('data.json')
+/* var file = fs.writeFileSync('data.json') */
 
 console.log("Luettu tiedostosta:");
-console.log(file.toString());
+/* console.log(file.toString()); */
+
 
 var results ='<table border="1"> ';
-
 
 for (var i = 0; i < file.length; i++) {
             
@@ -68,7 +68,7 @@ file[i].viesti +
 "</td>" +
 "</tr>";
 
-console.log(results)
+/* console.log(results) */
 }
 
 response.write(results)
@@ -193,7 +193,7 @@ app.post("/kirjaudu2", function(req, res) {
     
 
      
-console.log('Palvelin kuuntelee portissa ' +port)
+console.log('Palvelin kuuntelee portissa ' +portti)
 
 response.end(); //HTTP vastaus päättyy
 
