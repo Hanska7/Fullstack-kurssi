@@ -1,33 +1,30 @@
-
-// Tuodaan filesystem-moduuli ohjelmaan
+/* 
 var fs = require("fs");
+var filu = fs.readFileSync("data.json");
 
-// Luetaan tiedoston sisältö muuttujiin
-var data = fs.readFileSync("data.json");
- 
-// Tulostetaan tiedoston sisältö ruudulle
 console.log("Luettu tiedostosta:");
-console.log(data.toString());
+console.log(filu.toString());
 
 var results = ''
 
-for (var i = 0; i < json.length; i++) {
+
+for (var i = 0; i < 10; i++) {
             
 results +=
 
 "<tr>" +
 "<td>" +
-json[i].nimi +
+filu[i].nimi +
 "</td>" +
 "<td>" +
-json[i].maa +
+filu[i].maa +
 "</td>" +
 "<td>" +
-json[i].viesti +
+filu[i].viesti +
 "</td>" +
 "</tr>";
 
-console.log(results)
+
 }
 
-response.write(results)
+response.write(results) */

@@ -19,6 +19,11 @@
   <body>
     <div>
     <!-- Huomaa, että lomakkeen metodi = POST -->
+
+
+
+
+    
     <!-- action -määrittelee URL:n johon POST-tyyppinen pyyntö lähetetään -->
       <form method="POST" action="/kirjaudu">
         <div class="form-group">
@@ -75,4 +80,49 @@
   </body>
 </html>
 
-<script src="Kysyjäsivu.js"></script>
+<script>
+
+   // Varmistetaan että sivu on ladattu kokonaan ennenkuin lisäillään kuuntelijoita
+   window.onload = event => {
+     
+        console.log("page is fully loaded");
+
+        var nappi = document.getElementById("button1");
+
+        // Lisätään nappiin kuuntelija, joka hakee kenttien tiedot klikattaessa
+        nappi.addEventListener("click", () => {
+          var email = document.getElementById("email").value;
+          var pass = document.getElementById("pass").value;
+          var viesti = document.getElementById('viesti').value;
+          console.log(email, pass, viesti);
+        })
+
+
+         // Luodaan AJAX olio joka palauttaa vastauksensa status-kenttään     
+         var xmlhttp = new XMLHttpRequest();
+         xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            // Vastauksena saatu data tuodaan status-kenttään näkyviin
+              document.getElementById("status").innerHTML = this.responseText;
+              console.log(this.responseText);
+            }
+          };
+
+          xmlhttp.open("POST", "/kirjaudu", true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+    
+        // Kootaan kenttien tiedot data-muuttujaan
+          var data = {
+            email: email,
+            pass: pass,
+            viesti: viesti
+          };
+          // Lähetetään data-muuttuja merkkijonona palvelimelle
+          xmlhttp.send(JSON.stringify(data));
+
+
+
+        }
+
+
+</script>

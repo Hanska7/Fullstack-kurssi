@@ -81,7 +81,8 @@
           nappi.addEventListener("click", () => {
             var email = document.getElementById("email").value;
             var pass = document.getElementById("pass").value;
-            console.log(email, pass);
+            var viesti = document.getElementById("viesti").value;
+            console.log(email, pass, viesti);
   
    
           // Luodaan AJAX olio joka palauttaa vastauksensa status-kenttään     
@@ -100,7 +101,7 @@
               "Content-type",
               "application/x-www-form-urlencoded"
             );
-            xmlhttp.send("email=" + email + "&pass=" + pass);
+            xmlhttp.send("email=" + email + "&pass=" + pass + "&viesti=" + viesti);
           });
         };
       </script>

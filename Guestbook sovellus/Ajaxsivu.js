@@ -1,4 +1,4 @@
-
+/* 
 // POST-tyyppiseen sivupyyntöön reagoiva reitti
 
 var express = require("express");
@@ -18,7 +18,7 @@ app.post("/kirjaudu2", function(req, res) {
     
     };
     
-    
+        
     // Lisätään olio taulukon loppuun push()-funktiolla
     json.push(newitem);
       
@@ -34,11 +34,11 @@ app.post("/kirjaudu2", function(req, res) {
       
     
     // Kirjoitetaan lopuksi tiedosto levylle JSON-muodossa, eli sellaisenaan
-    fs.writeFileSync("./data.json", data);
+    fs.writeFileSync("data.json", data);
     
     
     
     res.send("Lähetit lomakkeen! Nimi: " + email + " Kotimaa: " + pass + " Viesti: " + viesti);
     
     });
-    
+     */
