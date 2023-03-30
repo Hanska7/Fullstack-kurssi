@@ -78,7 +78,7 @@
     <script>
         // Varmistetaan että sivu on ladattu kokonaan ennenkuin lisäillään kuuntelijoita
         window.onload = event => {
-        console.log("page is fully loaded");
+        console.log("Page is fully loaded");
   
         var nappi = document.getElementById("button1");
   
@@ -100,7 +100,7 @@
             };
             
           // Lähetetään AJAX pyyntö, tyyppiä POST osoitteeseen /kirjaudu2
-            xmlhttp.open("POST", "/kirjaudu2", true);
+            xmlhttp.open("POST", "https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/kirjaudu2", true);
             // Liitetään AJAX pyyntöön lomakkeen kenttien datat
             xmlhttp.setRequestHeader(
               "Content-type",
