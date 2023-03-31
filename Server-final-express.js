@@ -5,7 +5,7 @@ const portti = process.env.PORT || 8080;
 var bodyParser = require("body-parser");
 
 var data = fs.readFileSync('./data.json', 'utf8');
-var lista = JSON.parse(data);
+
 
 
 
