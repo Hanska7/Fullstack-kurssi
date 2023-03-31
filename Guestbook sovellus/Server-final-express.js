@@ -4,6 +4,13 @@ var app = express();
 const portti = process.env.PORT || 8080;
 var bodyParser = require("body-parser");
 
+var data = fs.readFileSync('./data.json', 'utf8');
+var lista = JSON.parse(data);
+
+
+
+
+
 
 app.use(express.json());
 
@@ -28,8 +35,13 @@ app.get("/", function(req, res) {
 app.get("/guestbook", function(req, res) {
     
     
-    var listasivu = fs.readFileSync('./Listasivu.html');
-    res.send(listasivu.toString());
+    /* var listasivu = fs.readFileSync('./Listasivu.html'); */
+
+    console.log(lista)
+    res.send(lista)
+
+
+    /* res.send(listasivu.toString()); */
 
 
     /* res.send("Olet saapunut informatiiviselle tietosivulle. \n"); */
@@ -92,6 +104,9 @@ app.post('/newmessage', function(req, res) {
 });
 
 
+
+
+
 app.post('/ajaxmessage', function(req, res) {
     var postaus2 = fs.readFileSync('data.json', 'utf8');
     
@@ -107,11 +122,11 @@ app.post('/ajaxmessage', function(req, res) {
 
 
     res.send(postaus2_str);
-    res.redirect('/ajaxmessage')
+    res.redirect('/guestbook')
 
 
 
-    
+
 
 // Web-palvelimen luonti Expressin avulla
 app.listen(portti, function() {
