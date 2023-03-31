@@ -33,7 +33,7 @@ res.send(etusivu.toString());
 });
 
 
-app.get("/Listasivu.html", function(req, res) {
+app.get("/Listasivu", function(req, res) {
 
 
 /* res.send(listasivu.toString()); */
@@ -66,27 +66,25 @@ file[i].viesti +
 "</td>" +
 "</tr>";
 
-console.log(results)
-}
 
+}
+console.log(results)
 res.send(results)
 
-
-    
 
 
 
 });
 
 
-
 app.get("/Kysyjäsivu.html", function(req, res) {
     
-/*     res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
+/* res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
 
-var kysyjäsivu = fs.readFileSync('./Kysyjäsivu.html');
+var kysyjäsivu = fs.readFileSync('./Kysyjäsivu');
 res.send(kysyjäsivu.toString());
+
 
 
 
@@ -97,11 +95,11 @@ res.send(kysyjäsivu.toString());
 
 app.get("/Ajaxsivu.html", function(req, res) {
     
-/*  res.send("Olet saapunut palvelimen monimutkaiselle Ajaxsivulle."); */
+/* res.send("Olet saapunut palvelimen monimutkaiselle Ajaxsivulle."); */
 
 
 
-var ajaxsivu = fs.readFileSync('./Ajaxsivu.html');
+var ajaxsivu = fs.readFileSync('./Ajaxsivu');
 res.send(ajaxsivu.toString());
 
 
@@ -127,11 +125,11 @@ app.post('/newmessage', function(req, res) {
 
     var postaus_str = JSON.stringify(postaus_json);
 
-    fs.writeFileSync('guestbook.json', postaus_str);
+    fs.writeFileSync('data.json', postaus_str);
     console.log("Kirjoitettu tiedostoon");
 
     res.send(postaus_str)
-    res.redirect('/guestbook')
+    res.redirect('/Listasivu')
 
 });
 
@@ -147,14 +145,14 @@ app.post('/ajaxmessage', function(req, res) {
 
     var postaus2_str = JSON.stringify(postaus2_json);
 
-    fs.writeFileSync('guestbook.json', postaus2_str);
+    fs.writeFileSync('data.json', postaus2_str);
     console.log("Kirjoitettu Ajax");
 
     /* Muotoile */
 
 
     res.send(postaus2_str);
-    res.redirect('/guestbook')
+    res.redirect('/Listasivu')
 
 
 
