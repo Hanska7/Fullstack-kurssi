@@ -119,7 +119,7 @@ app.get("*", function(req, res) {
 
 
 
-app.post('/Kysyjäsivu', function(req, res) {
+app.post('/Kysyjasivu', function(req, res) {
     var postaus = fs.readFileSync('data.json', 'utf8');
     
     var postaus = JSON.parse(postaus);
