@@ -22,58 +22,90 @@ app.use(bodyParser.json());
 // Luodaan reitit ja niiden toiminnallisuudet
 app.get("/", function(req, res) {
 
+/* res.send("Olet saapunut palvelimen kauniille etusivulle."); */    
     
-    var etusivu = fs.readFileSync('./index.html');
-    res.send(etusivu.toString());
+var etusivu = fs.readFileSync('./index.html');
+res.send(etusivu.toString());
 
-
-/*     res.send("Olet saapunut palvelimen kauniille etusivulle."); */
-
-});
-
-
-app.get("/guestbook", function(req, res) {
-    
-    
-    /* var listasivu = fs.readFileSync('./Listasivu.html'); */
-
-    console.log(lista)
-    res.send(lista)
-
-
-    /* res.send(listasivu.toString()); */
-
-
-    /* res.send("Olet saapunut informatiiviselle tietosivulle. \n"); */
 
 
 
 });
 
 
+app.get("/Listasivu.html", function(req, res) {
 
-app.get("/newmessage", function(req, res) {
+
+/* res.send(listasivu.toString()); */
+/* res.send("Olet saapunut informatiiviselle tietosivulle. \n"); */
+ 
+/* var listasivu = fs.readFileSync('./Listasivu.html'); */
     
+
+var file = require('./data.json'); 
+/* var file = fs.writeFileSync('data.json') */
+
+console.log("Luettu tiedostosta:");
+/* console.log(file.toString()); */
+
+var results ='<table border="1"> ';
+
+for (var i = 0; i < file.length; i++) {
+            
+results +=
+
+"<tr>" +
+"<td>" +
+file[i].nimi +
+"</td>" +
+"<td>" +
+file[i].maa +
+"</td>" +
+"<td>" +
+file[i].viesti +
+"</td>" +
+"</tr>";
+
+console.log(results)
+}
+
+res.send(results)
+
+
     
 
-    var kysyjäsivu = fs.readFileSync('./Kysyjäsivu.html');
-    res.send(kysyjäsivu.toString());
 
 
+});
+
+
+
+app.get("/Kysyjäsivu.html", function(req, res) {
+    
 /*     res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
+
+var kysyjäsivu = fs.readFileSync('./Kysyjäsivu.html');
+res.send(kysyjäsivu.toString());
+
+
+
+
 });
 
 
 
-app.get("/ajaxmessage", function(req, res) {
+app.get("/Ajaxsivu.html", function(req, res) {
     
-
-    var ajaxsivu = fs.readFileSync('./Ajaxsivu.html');
-    res.send(ajaxsivu.toString());
+/*  res.send("Olet saapunut palvelimen monimutkaiselle Ajaxsivulle."); */
 
 
-   /*  res.send("Olet saapunut palvelimen monimutkaiselle Ajaxsivulle."); */
+
+var ajaxsivu = fs.readFileSync('./Ajaxsivu.html');
+res.send(ajaxsivu.toString());
+
+
+
 
 });
 
