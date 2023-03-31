@@ -68,10 +68,15 @@ file[i].viesti +
 
 
 }
+
+var listasivu = fs.readFileSync('./Listasivu.html');
+
+
 console.log(results)
 
-res.send('<a href="https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/index.html">Etusivu</a> \n' +results)
+res.send(listasivu + results)
 /* res.send(results) */
+
 
 
 
@@ -120,18 +125,24 @@ app.get("*", function(req, res) {
 
 
 app.post('/Kysyjasivu', function(req, res) {
-    var postaus = fs.readFileSync('data.json', 'utf8');
+
+
+
+        var data = require('./data.json')
     
-    var postaus = JSON.parse(postaus);
-        postaus_json.push(req.body);
-
-    var postaus_str = JSON.stringify(postaus_json);
-
-    fs.writeFileSync('data.json', postaus_str);
-    console.log("Kirjoitettu tiedostoon");
-
-    res.send(postaus_str)
-    res.redirect('/Listasivu')
+        var databody = {
+            nimi: req.body.nimi,
+            maa: req.body.maa,
+            viesti: req.body.viesti,
+        }
+    
+        data.push(databody)
+    
+        var Str = JSON.stringify(data, "", 1)
+    
+        fs.writeFile('json-data.json', Str, (err) => {
+            if (err) throw err
+        })
 
 });
 
