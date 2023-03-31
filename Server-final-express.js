@@ -177,7 +177,7 @@ var viesti = req.body.viesti
 
 /* res.send('Lähetit '+req.body) */
 
-res.send('Tässä sinun lähettämät tietosi Ajaxilla '+results + "\n" + <a href="https://guestbook-qbol.onrender.com/">Etusivu</a>);
+res.send('Tässä sinun lähettämät tietosi Ajaxilla '+results + "\n" + '"<a href="https://guestbook-qbol.onrender.com/">Etusivu</a>"');
 
 
 
