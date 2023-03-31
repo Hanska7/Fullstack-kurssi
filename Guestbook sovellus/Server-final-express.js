@@ -142,6 +142,7 @@ app.post('/kirjaudu1', function(req, res) {
             
         var Str = JSON.stringify(data, "", 1)
     
+
         fs.writeFile('data.json', Str, (err) => {
             if (err) throw err
         })
@@ -150,7 +151,6 @@ app.post('/kirjaudu1', function(req, res) {
         res.redirect('/Listasivu')
     
 
-
 });
 
 
@@ -158,39 +158,26 @@ app.post('/kirjaudu1', function(req, res) {
 app.post('/kirjaudu2', function(req, res) {
 
 
-var data = require('./data.json')
-
 console.log(req.body)
 
-var tulos ='<table border="1"> ';
 
-tulos +=
+var results ='<table border="1"> ';
 
-"<tr>" +
-"<td>" +
-req.body.email +
-"</td>" +
-"<td>" +
-req.body.pass +
-"</td>" +
-"<td>" +
-req.body.viesti +
-"</td>" +
-"</tr>";
-        
-data.push(tulos);
-
-var Str = JSON.stringify(tulos, "", 1)
-
+var nimi = req.body.email
+var maa = req.body.pass
+var viesti = req.body.viesti
     
-/* res.send(tulos) */  
+    results+='<tr>'+
+    '<td>' + nimi + '</td>'+
+    '<td>' + maa + '</td>'+
+    '<td>' + viesti + '</td>'+
+    '</tr>'
 
-    fs.writeFile('data.json', Str, (err) => {
-        if (err) throw err
-    })
 
-    console.log("Lähetit: "+ Str);
-    res.redirect('/Listasivu')
+
+/* res.send('Lähetit '+req.body) */
+
+res.send('Tässä sinun lähettämät tietosi Ajaxilla '+results)
 
 
 
