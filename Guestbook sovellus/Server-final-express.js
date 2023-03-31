@@ -69,7 +69,9 @@ file[i].viesti +
 
 }
 console.log(results)
-res.send(results)
+
+res.send('<a href="https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/index.html">Etusivu</a> \n' +results)
+/* res.send(results) */
 
 
 
@@ -77,7 +79,7 @@ res.send(results)
 });
 
 
-app.get("/Kysyjäsivu", function(req, res) {
+app.get("/Kysyjasivu", function(req, res) {
     
 /* res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
