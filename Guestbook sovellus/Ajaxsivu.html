@@ -25,7 +25,7 @@
     <div>
     <!-- Huomaa, että lomakkeen metodi = POST -->
     <!-- action -määrittelee URL:n johon POST-tyyppinen pyyntö lähetetään -->
-      <form method="POST" action="/kirjaudu2">
+      <form method="POST" action="/Ajaxsivu.html">
         <div class="form-group">
           <label for="exampleInputEmail1">Nimi</label>
           <!-- Huomaa tekstikentän name-attribuutti -->
@@ -100,7 +100,7 @@
             };
             
           // Lähetetään AJAX pyyntö, tyyppiä POST osoitteeseen /kirjaudu2
-            xmlhttp.open("POST", "https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/kirjaudu2", true);
+            xmlhttp.open("POST", "https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/Ajaxsivu.html", true);
             // Liitetään AJAX pyyntöön lomakkeen kenttien datat
             xmlhttp.setRequestHeader(
               "Content-type",

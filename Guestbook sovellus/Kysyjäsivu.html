@@ -30,7 +30,7 @@
 
     
     <!-- action -määrittelee URL:n johon POST-tyyppinen pyyntö lähetetään -->
-      <form method="POST" action="https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/kirjaudu">
+      <form method="POST" action="https://hanska7.github.io/Fullstack-kurssi/Guestbook%20sovellus/Kysyjasivu.html">
         <div class="form-group">
           <label for="exampleInputEmail1">Nimi</label>
           <!-- Huomaa tekstikentän name-attribuutti -->
@@ -90,7 +90,7 @@
    // Varmistetaan että sivu on ladattu kokonaan ennenkuin lisäillään kuuntelijoita
    window.onload = event => {
 
-        console.log("page is fully loaded");
+        console.log("Page is fully loaded");
 
         var nappi = document.getElementById("button1");
 
@@ -113,7 +113,7 @@
             }
           };
 
-          xmlhttp.open("POST", "/kirjaudu", true);
+        xmlhttp.open("POST", "/Kysyjasivu.html", true);
         xmlhttp.setRequestHeader("Content-type", "application/json");
     
         // Kootaan kenttien tiedot data-muuttujaan
