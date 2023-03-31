@@ -127,48 +127,69 @@ app.get("*", function(req, res) {
 app.post('/kirjaudu1', function(req, res) {
 
         console.log(req.body)
+        
 
         var data = require('./data.json')
     
         var databody = {
-            nimi: req.body.nimi,
-            maa: req.body.maa,
+            nimi: req.body.email,
+            maa: req.body.pass,
             viesti: req.body.viesti,
         }
     
+
         data.push(databody)
-    
+            
         var Str = JSON.stringify(data, "", 1)
     
         fs.writeFile('data.json', Str, (err) => {
             if (err) throw err
         })
 
-        res.send(Str);
+        console.log("Lähetit: "+ Str);
         res.redirect('/Listasivu')
+    
 
 
 });
 
 
 
-
-
 app.post('/kirjaudu2', function(req, res) {
-    var postaus2 = fs.readFileSync('data.json', 'utf8');
+
+
+var data = require('./data.json')
+
+console.log(req.body)
+
+var tulos ='<table border="1"> ';
+
+tulos +=
+
+"<tr>" +
+"<td>" +
+req.body.email +
+"</td>" +
+"<td>" +
+req.body.pass +
+"</td>" +
+"<td>" +
+req.body.viesti +
+"</td>" +
+"</tr>";
+        
+data.push(tulos);
+
+var Str = JSON.stringify(tulos, "", 1)
+
     
-    var postaus2_json = JSON.parse(postaus2);
-        postaus2_json.push(req.body);
+/* res.send(tulos) */  
 
-    var postaus2_str = JSON.stringify(postaus2_json);
+    fs.writeFile('data.json', Str, (err) => {
+        if (err) throw err
+    })
 
-    fs.writeFileSync('data.json', postaus2_str);
-    console.log("Kirjoitettu Ajax");
-
-    
-
-
-    res.send(postaus2_str);
+    console.log("Lähetit: "+ Str);
     res.redirect('/Listasivu')
 
 
