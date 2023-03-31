@@ -77,7 +77,7 @@ res.send(results)
 });
 
 
-app.get("/Kysyjäsivu.html", function(req, res) {
+app.get("/Kysyjäsivu", function(req, res) {
     
 /* res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
@@ -93,7 +93,7 @@ res.send(kysyjäsivu.toString());
 
 
 
-app.get("/Ajaxsivu.html", function(req, res) {
+app.get("/Ajaxsivu", function(req, res) {
     
 /* res.send("Olet saapunut palvelimen monimutkaiselle Ajaxsivulle."); */
 
