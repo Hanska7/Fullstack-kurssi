@@ -124,7 +124,7 @@ app.get("*", function(req, res) {
 
 
 
-app.post('/Kysyjasivu', function(req, res) {
+app.post('/kirjaudu1', function(req, res) {
 
 
 
@@ -140,9 +140,13 @@ app.post('/Kysyjasivu', function(req, res) {
     
         var Str = JSON.stringify(data, "", 1)
     
-        fs.writeFile('json-data.json', Str, (err) => {
+        fs.writeFile('data.json', Str, (err) => {
             if (err) throw err
         })
+
+        res.send(Str);
+        res.redirect('/Listasivu')
+
 
 });
 
@@ -150,7 +154,7 @@ app.post('/Kysyjasivu', function(req, res) {
 
 
 
-app.post('/Ajaxsivu', function(req, res) {
+app.post('/kirjaudu2', function(req, res) {
     var postaus2 = fs.readFileSync('data.json', 'utf8');
     
     var postaus2_json = JSON.parse(postaus2);
@@ -161,7 +165,7 @@ app.post('/Ajaxsivu', function(req, res) {
     fs.writeFileSync('data.json', postaus2_str);
     console.log("Kirjoitettu Ajax");
 
-    /* Muotoile */
+    
 
 
     res.send(postaus2_str);
