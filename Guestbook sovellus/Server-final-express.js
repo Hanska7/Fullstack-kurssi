@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 
 // Luodaan reitit ja niiden toiminnallisuudet
-app.get("/", function(req, res) {
+app.get("/Guestbook%20sovellus/", function(req, res) {
 
 /* res.send("Olet saapunut palvelimen kauniille etusivulle."); */    
     
@@ -33,7 +33,7 @@ res.send(etusivu.toString());
 });
 
 
-app.get("/Listasivu", function(req, res) {
+app.get("/Guestbook%20sovellus/Listasivu", function(req, res) {
 
 
 /* res.send(listasivu.toString()); */
@@ -84,7 +84,7 @@ res.send(listasivu + results)
 });
 
 
-app.get("/Kysyjasivu", function(req, res) {
+app.get("/Guestbook%20sovellus/Kysyjasivu", function(req, res) {
     
 /* res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
@@ -100,7 +100,7 @@ res.send(kysyjäsivu.toString());
 
 
 
-app.get("/Ajaxsivu", function(req, res) {
+app.get("/Guestbook%20sovellus/Ajaxsivu", function(req, res) {
     
 /* res.send("Olet saapunut palvelimen monimutkaiselle Ajaxsivulle."); */
 
@@ -124,7 +124,7 @@ app.get("*", function(req, res) {
 
 
 
-app.post('/kirjaudu1', function(req, res) {
+app.post('/Guestbook%20sovellus/kirjaudu1', function(req, res) {
 
         console.log(req.body)
         
@@ -148,14 +148,14 @@ app.post('/kirjaudu1', function(req, res) {
         })
 
         console.log("Lähetit: "+ Str);
-        res.redirect('/Listasivu')
+        res.redirect('Guestbook%20sovellus/Listasivu')
     
 
 });
 
 
 
-app.post('/kirjaudu2', function(req, res) {
+app.post('/Guestbook%20sovellus/kirjaudu2', function(req, res) {
 
 
 console.log(req.body)
