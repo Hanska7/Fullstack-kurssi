@@ -82,7 +82,7 @@ app.get("/Kysyjäsivu", function(req, res) {
 /* res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
 
-var kysyjäsivu = fs.readFileSync('./Kysyjäsivu');
+var kysyjäsivu = fs.readFileSync('./Kysyjäsivu.html');
 res.send(kysyjäsivu.toString());
 
 
@@ -99,7 +99,7 @@ app.get("/Ajaxsivu", function(req, res) {
 
 
 
-var ajaxsivu = fs.readFileSync('./Ajaxsivu');
+var ajaxsivu = fs.readFileSync('./Ajaxsivu.html');
 res.send(ajaxsivu.toString());
 
 
