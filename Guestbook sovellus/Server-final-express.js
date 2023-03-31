@@ -126,7 +126,7 @@ app.get("*", function(req, res) {
 
 app.post('/kirjaudu1', function(req, res) {
 
-
+        console.log(req.body)
 
         var data = require('./data.json')
     
