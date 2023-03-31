@@ -8,10 +8,6 @@ var data = fs.readFileSync('./data.json', 'utf8');
 
 
 
-
-
-
-
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
