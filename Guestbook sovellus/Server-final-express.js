@@ -45,7 +45,7 @@ app.get("/Listasivu", function(req, res) {
 var file = require('./data.json'); 
 /* var file = fs.writeFileSync('data.json') */
 
-console.log("Luettu tiedostosta:");
+console.log("Luettu tiedostosta: "+file);
 /* console.log(file.toString()); */
 
 var results ='<table border="1"> ';
@@ -117,7 +117,7 @@ app.get("*", function(req, res) {
 
 
 
-app.post('/newmessage', function(req, res) {
+app.post('/Kysyjäsivu', function(req, res) {
     var postaus = fs.readFileSync('data.json', 'utf8');
     
     var postaus = JSON.parse(postaus);
@@ -137,7 +137,7 @@ app.post('/newmessage', function(req, res) {
 
 
 
-app.post('/ajaxmessage', function(req, res) {
+app.post('/Ajaxsivu', function(req, res) {
     var postaus2 = fs.readFileSync('data.json', 'utf8');
     
     var postaus2_json = JSON.parse(postaus2);
