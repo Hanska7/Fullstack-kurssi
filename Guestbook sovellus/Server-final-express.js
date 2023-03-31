@@ -84,7 +84,7 @@ app.get("/Kysyjasivu", function(req, res) {
 /* res.send("Olet saapunut palvelimen uteliaalle kysyjäsivulle."); */
 
 
-var kysyjäsivu = fs.readFileSync('./Kysyjäsivu.html');
+var kysyjäsivu = fs.readFileSync('./Kysyjasivu.html');
 res.send(kysyjäsivu.toString());
 
 
